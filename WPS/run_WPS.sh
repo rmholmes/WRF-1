@@ -7,7 +7,7 @@
 #PBS -l ncpus=4
 #PBS -l mem=4gb
 #PBS -l wd
-#PBS -l storage=gdata/sx70
+#PBS -l storage=gdata/sx70+gdata/e14
 #PBS -W umask=0022
 
 set -eu
@@ -18,7 +18,7 @@ set -eu
 # You can either set the WRF_ROOT variable value via the `-v` option
 # for qsub or change the value below within the if statement.
 if [ -z "${WRF_ROOT+x}" ]; then
-    WRF_ROOT=$HOME/WRF
+    WRF_ROOT=/g/data/e14/rmh561/software/WRF
 fi
 # -------------------------------
 
@@ -33,7 +33,7 @@ source ${WRF_ROOT}/build.env
 
 geogrid.exe
 
-link_grib.csh /g/data/sx70/data/SingleDomain_data/matthews/fnl
+link_grib.csh /g/data/sx70/data/SingleDomain_data/matthew/fnl*
 # Link Vtable
 ln -sf ${WRF_ROOT}/WPS/ungrib/Variable_Tables/Vtable.GFS Vtable
 

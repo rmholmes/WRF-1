@@ -5,6 +5,7 @@
 #PBS -j oe
 #PBS -q express
 #PBS -l wd
+#PBS -l storage=gdata/e14
 #PBS -W umask=0022
 
 # ------- USER UPDATE NECESSARY
@@ -13,15 +14,15 @@
 # You can either set the WRF_ROOT variable value via the `-v` option
 # for qsub or change the value below within the if statement.
 if [ -z "${WRF_ROOT+x}" ]; then
-    WRF_ROOT=$HOME/WRF
+    WRF_ROOT=/g/data/e14/rmh561/software/WRF
 fi
 # -------------------------------
 
 source ${WRF_ROOT}/build.env
 ulimit -s unlimited
 
-if [ -x "${WRF_ROOT}/WRFV3/main/real.exe" ]; then
-    export PATH="${WRF_ROOT}/WRFV3/main:${PATH}"
+if [ -x "${WRF_ROOT}/WRF/main/real.exe" ]; then
+    export PATH="${WRF_ROOT}/WRF/main:${PATH}"
 else
     echo "ERROR: WRF not found"
     exit 1
