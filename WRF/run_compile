@@ -147,10 +147,10 @@ if [[ $chem == 1 ]]; then
 fi
 
 # run configure
-./configure $debug $opt $config_chem << EOF_configure
-$architecture
-$nest
-EOF_configure
+# ./configure $debug $opt $config_chem << EOF_configure
+# $architecture
+# $nest
+# EOF_configure
 
 # Select queue depending on architecture option
 QUEUE=express
