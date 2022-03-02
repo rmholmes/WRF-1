@@ -14,7 +14,7 @@
 # You can either set the WRF_ROOT variable value via the `-v` option
 # for qsub or change the value below within the if statement.
 if [ -z "${WRF_ROOT+x}" ]; then
-    WRF_ROOT=/g/data/e14/rmh561/software/WRF
+    WRF_ROOT=/g/data/e14/rmh561/WRF
 fi
 # -------------------------------
 
